@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page isELIgnored="false"%>
+
 <html>
 <head>
 <title>Products</title>
@@ -14,7 +15,7 @@
 		class="btn btn-primary" />
 	<br />
 	<br />
-
+	<h3>Products list:</h3>
 	<table>
 		<tr>
 			<td>Product Id</td>

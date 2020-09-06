@@ -11,6 +11,8 @@ import evozon.model.Product;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -24,34 +26,39 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class DefaultProductDAO implements ProductDAO {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+	@Autowired
+	private SessionFactory sessionFactory;
 
-    @Override
-    public Product getById(int id) {
-        throw new NotYetImplementedException();
-    }
+	@PersistenceContext
+	EntityManager em;
 
-    @SuppressWarnings("unchecked")
 	@Override
-    public List<Product> getProducts() {
-    	Session session = sessionFactory.getCurrentSession();
-    	CriteriaBuilder cb = session.getCriteriaBuilder();
-        CriteriaQuery < Product > cq = cb.createQuery(Product.class);
-        Root < Product > root = cq.from(Product.class);
-        cq.select(root);
-        Query query = session.createQuery(cq);
-        return query.getResultList();
-    	
-    	//TODO
+	public Product getById(int id) {
+		return (Product) sessionFactory.getCurrentSession().get(Product.class, id);
+		// TODO
 //        throw new NotYetImplementedException();
-    }
+	}
 
-    @Override
-    public void addProduct(Product product) {
-    	Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.saveOrUpdate(product);
-    	//TODO
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> getProducts() {
+		Session session = sessionFactory.getCurrentSession();
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+		Root<Product> root = cq.from(Product.class);
+		cq.select(root);
+		Query query = session.createQuery(cq);
+		return query.getResultList();
+
+		// TODO
 //        throw new NotYetImplementedException();
-    }
+	}
+
+	@Override
+	public void addProduct(Product product) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.saveOrUpdate(product);
+		// TODO
+//        throw new NotYetImplementedException();
+	}
 }
