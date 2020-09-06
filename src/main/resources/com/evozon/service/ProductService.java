@@ -15,10 +15,10 @@ public interface ProductService {
     /*
      * Retrieves all the products from the DB
      */
-    List<Product> getAll();
+    List<Product> getProducts();
 
     /*
      * Adds a new product to the DB
      */
-    Product addProduct(Product product);
+    void addProduct(Product product);
 }

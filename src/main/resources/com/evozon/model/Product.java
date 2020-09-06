@@ -9,7 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class Product {
 	
 	@Id
@@ -23,8 +23,8 @@ public class Product {
 	@Column(name = "name")
     private String name;
 	
-	@Column(name = "date")
-	@CreationTimestamp
+	@Column(name = "creationDate")
+	@Temporal(TemporalType.DATE)
     private Date creationDate;
 
     public Product() {

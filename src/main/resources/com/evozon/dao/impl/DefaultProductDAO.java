@@ -32,8 +32,9 @@ public class DefaultProductDAO implements ProductDAO {
         throw new NotYetImplementedException();
     }
 
-    @Override
-    public List<Product> getAll() {
+    @SuppressWarnings("unchecked")
+	@Override
+    public List<Product> getProducts() {
     	Session session = sessionFactory.getCurrentSession();
     	CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery < Product > cq = cb.createQuery(Product.class);
@@ -47,7 +48,10 @@ public class DefaultProductDAO implements ProductDAO {
     }
 
     @Override
-    public Product addProduct(Product product) {
-        throw new NotYetImplementedException();
+    public void addProduct(Product product) {
+    	Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.saveOrUpdate(product);
+    	//TODO
+//        throw new NotYetImplementedException();
     }
 }
