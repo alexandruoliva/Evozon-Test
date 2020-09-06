@@ -8,6 +8,12 @@
 </head>
 <meta charset="ISO-8859-1">
 <body>
+	<h1>Products management system</h1>
+	<input type="button" value="Add Product"
+		onclick="window.location.href='addProduct'; return false;"
+		class="btn btn-primary" />
+	<br />
+	<br />
 
 	<table>
 		<tr>
