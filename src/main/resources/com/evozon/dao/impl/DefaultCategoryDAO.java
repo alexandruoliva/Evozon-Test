@@ -13,26 +13,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import evozon.dao.CategoryDAO;
+import evozon.exceptionHandler.DAOExceptionHandler;
 import evozon.model.Category;
 
 @Repository
-public class DefaultCategoryDAO implements CategoryDAO{
-	
+public class DefaultCategoryDAO implements CategoryDAO {
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Category> getCategories() {
+	public List<Category> getCategories() throws DAOExceptionHandler {
 		Session session = sessionFactory.getCurrentSession();
 		CriteriaBuilder cb = session.getCriteriaBuilder();
 		CriteriaQuery<Category> cq = cb.createQuery(Category.class);
 		Root<Category> root = cq.from(Category.class);
 		cq.select(root);
 		Query query = session.createQuery(cq);
-		return query.getResultList();
-		// TODO
-//      throw new NotYetImplementedException();
+		if (query != null) {
+			return query.getResultList();
+		} else {
+			throw new DAOExceptionHandler("The query is null");
+		}
 	}
-	
+
 }

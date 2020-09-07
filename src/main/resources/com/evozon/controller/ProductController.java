@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.ResourceAccessException;
 
+import evozon.exceptionHandler.DAOExceptionHandler;
 import evozon.model.Product;
 import evozon.service.ProductService;
 
@@ -24,7 +25,12 @@ public class ProductController {
 
 	@GetMapping("/list")
 	public String listProducts(Model theModel) {
-		List<Product> theProducts = productService.getProducts();
+		List<Product> theProducts = null;
+		try {
+			theProducts = productService.getProducts();
+		} catch (DAOExceptionHandler e) {
+			e.printStackTrace();
+		}
 		theModel.addAttribute("products", theProducts);
 		return "products";
 	}
@@ -38,13 +44,22 @@ public class ProductController {
 
 	@PostMapping("/saveProduct")
 	public String saveProduct(@ModelAttribute("product") Product theProduct) {
-		productService.addProduct(theProduct);
+		try {
+			productService.addProduct(theProduct);
+		} catch (DAOExceptionHandler e) {
+			e.printStackTrace();
+		}
 		return "redirect:/product/list";
 	}
 
 	@GetMapping("/getProduct")
 	public String showProduct(@RequestParam("id") int theId, Model theModel) throws ResourceAccessException {
-		Product theProduct = productService.getById(theId);
+		Product theProduct = null;
+		try {
+			theProduct = productService.getById(theId);
+		} catch (DAOExceptionHandler e) {
+			e.printStackTrace();
+		}
 		theModel.addAttribute("product", theProduct);
 		return "product";
 	}
