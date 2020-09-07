@@ -18,6 +18,7 @@
 		<br></br>
 		<form:label path="name">Name</form:label>
 		<form:input path="name" />
+		<br></br>
 		<input type="submit" value="Submit" />
 	</form:form>
 </body>

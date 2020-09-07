@@ -50,8 +50,8 @@ public class ProductController {
 		return "redirect:/product/list";
 	}
 
-	@GetMapping("/getProduct/{id}")
-	public String showProduct(@PathVariable("id") int theId, Model theModel) throws ResourceAccessException {
+	@GetMapping("/getProduct")
+	public String showProduct(@RequestParam("id") int theId, Model theModel) throws ResourceAccessException {
 		Product theProduct = productService.getById(theId);
 		theModel.addAttribute("product", theProduct);
 		return "product";
