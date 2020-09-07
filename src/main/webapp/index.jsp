@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
+<meta http-equiv="Cache-Control" content="no-store" />
 <html>
 <head>
 <title>Index.jsp</title>
 </head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <body>
 	Prerequisites:
 	<br>
@@ -43,7 +45,7 @@
 	<input type="button" value="Go to products management system"
 		onclick="window.location.href='products'; return false;"
 		class="btn btn-primary" />
-<br>
+<br></br>
 	<input type="button" value="Categories of products"
 		onclick="window.location.href='category/list'; return false;"
 		class="btn btn-primary" />
