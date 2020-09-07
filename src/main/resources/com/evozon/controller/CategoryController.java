@@ -14,10 +14,10 @@ import evozon.service.CategoryService;
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
-	
+
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@GetMapping("/list")
 	public String listProducts(Model theModel) {
 		List<Category> theCategories = categoryService.getCategories();

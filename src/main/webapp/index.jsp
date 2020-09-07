@@ -32,5 +32,9 @@ Requirements:<br>
         </ul>
     </li>
 </ul>
+
+<input type="button" value="Go to products management system"
+		onclick="window.location.href='products'; return false;"
+		class="btn btn-primary" />
 </body>
 </html>
