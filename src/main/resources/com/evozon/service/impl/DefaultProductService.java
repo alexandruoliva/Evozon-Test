@@ -32,7 +32,7 @@ public class DefaultProductService implements ProductService {
 
     @Override
     @Transactional
-    public void addProduct(Product product) {
-        this.productDAO.addProduct(product);
+    public Product addProduct(Product product) {
+        return productDAO.addProduct(product);
     }
 }

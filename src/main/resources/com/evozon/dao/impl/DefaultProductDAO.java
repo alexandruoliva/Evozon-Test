@@ -55,9 +55,10 @@ public class DefaultProductDAO implements ProductDAO {
 	}
 
 	@Override
-	public void addProduct(Product product) {
+	public Product addProduct(Product product) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(product);
+		return product;
 		// TODO
 //        throw new NotYetImplementedException();
 	}

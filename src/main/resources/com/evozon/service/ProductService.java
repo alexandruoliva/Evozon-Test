@@ -20,5 +20,5 @@ public interface ProductService {
     /*
      * Adds a new product to the DB
      */
-    void addProduct(Product product);
+    Product addProduct(Product product);
 }
