@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page isELIgnored="false"%>
-
+<meta http-equiv="Cache-Control" content="no-store" />
 <html>
 <head>
 <title>Products</title>
@@ -15,6 +15,9 @@
 		class="btn btn-primary" />
 	<br />
 	<br />
+	<input type="button" value="Find product by id"
+		onclick="window.location.href='findProduct'; return false;"
+		class="btn btn-primary" />
 	<h3>Products list:</h3>
 	<table>
 		<tr>
