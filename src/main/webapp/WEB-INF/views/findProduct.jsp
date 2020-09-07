@@ -16,7 +16,7 @@
 	<form:form method="GET" action="getProduct/"
 		modelAttribute="findProduct">
 		<form:label path="id">Id</form:label>
-		<form:input path="id" />
+		<form:input path="id"/>
 		<br></br>
 		<input type="submit" value="Find" />
 	</form:form>
