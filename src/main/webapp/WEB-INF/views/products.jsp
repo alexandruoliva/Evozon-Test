@@ -18,6 +18,7 @@
 	<input type="button" value="Find product by id"
 		onclick="window.location.href='findProduct'; return false;"
 		class="btn btn-primary" />
+		<br>
 	<h3>Products list:</h3>
 	<table>
 		<tr>
